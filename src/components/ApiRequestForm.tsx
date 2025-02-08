@@ -42,7 +42,7 @@ export default function ApiRequestForm({
           body: JSON.stringify(inputValues)
         })
 
-        const data = await res.json()
+        const data = await res
         setResponse(JSON.stringify(data, null, 2))
       }
     } catch (error) {
