@@ -32,18 +32,22 @@ export default function ApiRequestForm({
           method: selectedEndpoint.method,
           headers: { 'Content-Type': 'application/json' },
         })
-        
+
         const data = await res.json()
         setResponse(JSON.stringify(data, null, 2))
       } else {
         const res = await fetch(url, {
           method: selectedEndpoint.method,
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(inputValues)
+          body: JSON.stringify(inputValues),
         })
 
-        const data = await res
-        setResponse(JSON.stringify(data, null, 2))
+        try {
+          const data = await res.json()
+          setResponse(JSON.stringify(data, null, 2))
+        } catch {
+          setResponse(await res.text())
+        }
       }
     } catch (error) {
       setResponse(`Error: ${error}`)
