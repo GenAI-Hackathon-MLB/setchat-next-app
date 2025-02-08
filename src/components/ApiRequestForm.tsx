@@ -29,6 +29,7 @@ export default function ApiRequestForm({
     try {
       if (selectedEndpoint.method == 'GET') {
         const res = await fetch(url, {
+          mode: 'no-cors',
           method: selectedEndpoint.method,
           headers: { 'Content-Type': 'application/json' },
         })
@@ -37,6 +38,7 @@ export default function ApiRequestForm({
         setResponse(JSON.stringify(data, null, 2))
       } else {
         const res = await fetch(url, {
+          mode: 'no-cors',
           method: selectedEndpoint.method,
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(inputValues),
