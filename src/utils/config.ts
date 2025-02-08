@@ -31,7 +31,7 @@ export const endpoints = [
   },
   {
     name: "Update Jobs",
-    method: "GET",
+    method: "POST",
     path: "/knowledgebase/updatejobs",
     inputs: [],
   },
