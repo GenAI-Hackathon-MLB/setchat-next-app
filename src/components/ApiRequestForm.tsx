@@ -39,7 +39,7 @@ export default function ApiRequestForm({
         const res = await fetch(url, {
           method: selectedEndpoint.method,
           headers: { 'Content-Type': 'application/json' },
-          // body: {inputValues}
+          body: JSON.stringify(inputValues)
         })
 
         const data = await res.json()
