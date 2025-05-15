@@ -8,7 +8,7 @@ export default function ApiRequestForm({
 }: {
   environments: Record<Environment, string>
 }) {
-  const [environment, setEnvironment] = useState<Environment>('Dev')
+  const [environment, setEnvironment] = useState<Environment>('Stage')
   const [selectedEndpoint, setSelectedEndpoint] = useState(endpoints[0])
   const [inputValues, setInputValues] = useState<Record<string, string>>({})
   const [response, setResponse] = useState<string>('')
